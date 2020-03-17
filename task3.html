@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      class Me extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            name: "Diana",
+            surname: "Grytsyna",
+            phone: "0980374574",
+            city: "Khmelnitsky",
+            school: "Gymnasium 1"
+          };
+          this.updateMe = this.updateMe.bind(this);
+          this.handleChangeName = this.handleChangeName.bind(this);
+          this.handleChangeSurname = this.handleChangeSurname.bind(this);
+          this.handleChangePhone = this.handleChangePhone.bind(this);
+          this.handleChangeSchool = this.handleChangeSchool.bind(this);
+          this.handleChangeCity = this.handleChangeCity.bind(this);
+        }
+
+        updateMe() {
+          this.setState({
+            name: "Diana",
+            surname: "Grytsyna",
+            phone: "0980374574",
+            city: "Khmelnitsky",
+            school: "Gymnasium 1"
+          });
+        }
+        handleChangeName(event) {
+          this.setState({
+            name: event.target.value
+          });
+        }
+        handleChangeSurname(event) {
+          this.setState({
+            surname: event.target.value
+          });
+        }
+        handleChangePhone(event) {
+          this.setState({
+            phone: event.target.value
+          });
+        }
+        handleChangeSchool(event) {
+          this.setState({
+            school: event.target.value
+          });
+        }
+        handleChangeCity(event) {
+          this.setState({
+            city: event.target.value
+          });
+        }
+        render() {
+          return (
+            <div>
+              <p>
+                Name:
+                <input
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.handleChangeName}
+                />
+              </p>
+              <p>
+                Surname:
+                <input
+                  type="text"
+                  value={this.state.surname}
+                  onChange={this.handleChangeSurname}
+                />
+              </p>
+              <p>
+                Phone:
+                <input
+                  type="text"
+                  value={this.state.phone}
+                  onChange={this.handleChangePhone}
+                />
+              </p>
+              <p>
+                School:
+                <input
+                  type="text"
+                  value={this.state.school}
+                  onChange={this.handleChangeSchool}
+                />
+              </p>
+              <p>
+                City:
+                <input
+                  type="text"
+                  value={this.state.city}
+                  onChange={this.handleChangeCity}
+                />
+              </p>
+              <button onClick={this.updateMe}>Click me!</button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Me />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
